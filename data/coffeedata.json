@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Espresso Roast",
+    "price": 4.50,
+    "image_url": "https://media.istockphoto.com/id/1303583671/photo/cup-glass-of-coffee-with-smoke-and-coffee-beans-on-old-wooden-background.jpg?s=612x612&w=0&k=20&c=fAh3m6Hqxz-qeA45Tj2jGARhRiGFhgm80dLVthnvlD8=",
+    "roast_level": 1
+  },
+  {
+    "id": 2,
+    "name": "House Blend",
+    "price": 5.00,
+    "image_url": "https://assets.nst.com.my/images/articles/kopi_1722241706.jpg",
+    "roast_level": 5
+  },
+  {
+    "id": 3,
+    "name": "Breakfast Coffee",
+    "price": 4.80,
+    "image_url": "https://colombiancoffee.us/cdn/shop/articles/tips-to-recognize-good-quality-coffee-424970.png?v=1713377616&width=1024",
+    "roast_level": 2
+  },
+  {
+    "id": 4,
+    "name": "Caramel Latte",
+    "price": 6.20,
+    "image_url": "https://images.unsplash.com/photo-1470337458703-46ad1756a187",
+    "roast_level": 1
+  },
+  {
+    "id": 5,
+    "name": "Mocha Coffee",
+    "price": 6.50,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9NmU0UFLkQahMUw7VSECbLASOkr74S4SwHw&s",
+    "roast_level": 2
+  },
+  {
+    "id": 6,
+    "name": "Vanilla Cappuccino",
+    "price": 6.00,
+    "image_url": "https://images.unsplash.com/photo-1541167760496-1628856ab772",
+    "roast_level": 3
+  },
+  {
+    "id": 7,
+    "name": "Iced Americano",
+    "price": 5.30,
+    "image_url": "https://img.freepik.com/premium-photo/steaming-coffee-cup-surrounded-by-coffee-beans-nature-background-capturing-morning-coffee_1293074-165012.jpg",
+    "roast_level": 1
+  },
+  {
+    "id": 8,
+    "name": "Cold Brew Classic",
+    "price": 6.00,
+    "image_url": "https://www.shutterstock.com/image-photo/cup-hot-coffee-roasted-beans-260nw-2263013095.jpg",
+    "roast_level": 2
+  },
+  {
+    "id": 9,
+    "name": "Iced Latte",
+    "price": 6.40,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxC233XlNTxTb3Bh-TCWfa9O0vVSkPM53sWg&s",
+    "roast_level": 1
+  },
+  {
+    "id": 10,
+    "name": "Hazelnut Coffee",
+    "price": 6.10,
+    "image_url": "https://images.unsplash.com/photo-1459755486867-b55449bb39ff",
+    "roast_level": 4
+  },
+  {
+    "id": 11,
+    "name": "Black Coffee",
+    "price": 4.00,
+    "image_url": "https://www.ictcoffee.com/wp-content/uploads/2023/06/Cup-coffee-beans-wooden.jpg",
+    "roast_level": 3
+  },
+  {
+    "id": 12,
+    "name": "French Roast",
+    "price": 5.80,
+    "image_url": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
+    "roast_level": 2
+  }
+]

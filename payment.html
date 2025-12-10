@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Section</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Allura&family=Caveat:wght@400..700&family=Poppins:wght@500&display=swap');
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+    }
+
+    .payment-container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: #101010;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .payment-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .payment-header h1 {
+      font-size: 24px;
+      color: #E2F2B0;
+      font-family: "Allura", cursive;
+    }
+
+    .payment-header p {
+      font-size: 14px;
+      color: #E2F2B0;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color:#E2F2B0;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 6px;
+      border: 1px solid #E2F2B0;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .order-summary {
+      background: #f1f1f1;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .order-summary p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .order-summary .total {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+      color: #ffffff;
+    }
+
+    .security {
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+      margin-top: 20px;
+    }
+
+    .security img {
+      width: 16px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+<div class="payment-container" >
+  <div class="payment-header" >
+    <h1>Complete Your Payment</h1>
+    <p>Secure and fast payment process</p>
+  </div>
+
+  <form id="payment-form">
+    <div class="form-group">
+      <label for="payment-method">Select Payment Method</label>
+      <select id="payment-method" name="payment-method">
+        <option value="credit-card">Credit/Debit Card</option>
+        <!-- <option value="paypal">PayPal</option> -->
+        <!-- <option value="upi">UPI</option> -->
+      </select>
+    </div>
+
+    <div id="card-details" class="payment-method-details">
+      <div class="form-group" >
+        <label for="card-name">Cardholder Name</label>
+        <input type="text" id="card-name" name="card-name" placeholder="John Doe" required>
+      </div>
+      <div class="form-group">
+        <label for="card-number">Card Number</label>
+        <input type="number" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+      </div>
+      <div class="form-group">
+        <label for="expiry-date">Expiry Date</label>
+        <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+      </div>
+      <div class="form-group">
+        <label for="cvv">CVV</label>
+        <input type="number" id="cvv" name="cvv" placeholder="123" required>
+      </div>
+    </div>
+<!-- <form id="payment-form">
+    <div id="upi-details" class="payment-method-details" style="display: none;">
+      <div class="form-group">
+        <label for="upi-id">UPI ID</label>
+        <input type="text" id="upi-id" name="upi-id" placeholder="example@upi" required>
+      </div>
+    </div>
+</form> -->
+    <!-- <div id="paypal-details" class="payment-method-details" style="display: none;">
+      <p>Click below to proceed with PayPal:</p>
+      <button type="button" class="btn btn-primary">Pay with PayPal</button>
+    </div> -->
+
+    <div class="order-summary">
+      <p id="subtotal">Subtotal: $0.00</p>
+      <p>Charge: $5.00</p>
+      <p class="total">Total: $5.00</p>
+    </div>
+
+    <div class="button-container">
+      <button type="submit" class="btn btn-primary" id="pay-now" disabled>Pay Now</button>
+      <!-- <button type="button" class="btn btn-secondary">Cancel</button> -->
+    </div>
+  </form>
+
+  <div class="security">
+    <p> Your payment is 100% secure</p>
+  </div>
+</div>
+
+<script>
+  const paymentMethod = document.getElementById('payment-method');
+  const cardDetails = document.getElementById('card-details');
+ 
+  const subtotalEl = document.getElementById('subtotal');
+
+
+// Listen for changes in the payment method dropdown.
+  paymentMethod.addEventListener('change', (e) => {
+    const value = e.target.value;  // Get the selected payment method value.
+    cardDetails.style.display = value === 'credit-card' ? 'block' : 'none'; // Show or hide card details based on selection.
+    
+  });
+
+
+  // Function to calculate and update the subtotal and total amount.
+  function updateSubtotal() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || []; // Retrieve cart items from localStorage or initialize an empty array.
+    const subtotal = cart.reduce((total, item) => total + item.price, 0); // Calculate the subtotal by summing up item prices.
+    subtotalEl.textContent = `Subtotal: $${subtotal.toFixed(2)}`; // Display the subtotal amount.
+    const totalEl = document.querySelector('.total'); // Select the total amount element.
+     const charge = 5.00; // Fixed charge for demonstration purposes
+    totalEl.textContent = `Total: $${(subtotal+charge).toFixed(2)}`; // Calculate and display the total amount including charge.
+  }
+
+  // Run the `updateSubtotal` function when the page content is fully loaded.
+  document.addEventListener('DOMContentLoaded', () => {
+    updateSubtotal();
+  });
+
+//   const form = document.getElementById('payment-form');
+  
+//   form.addEventListener('submit', function (event) {
+//     event.preventDefault(); // Prevent the form from performing its default submission
+//     window.location.href = 'index.html'; // Replace with your target page
+//   });
+
+const paymentForm = document.getElementById('payment-form'); // Select the payment form.
+  const payNowButton = document.getElementById('pay-now'); // Select the "Pay Now" button.
+
+
+  // Add an event listener for input changes in the payment form.
+  paymentForm.addEventListener('input', () => {
+    const allInputs = Array.from(paymentForm.querySelectorAll('input, select')); // Select all input and select elements in the form.
+    const allValid = allInputs.every(input => input.checkValidity()); // Check if all inputs are valid.
+    payNowButton.disabled = !allValid; // Enable the "Pay Now" button if all inputs are valid, otherwise disable it.
+  });
+
+  // Add an event listener for form submission.
+  paymentForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent the default form submission behavior.
+
+    alert('Payment Successful!'); // Show a success message to the user.
+    paymentForm.reset(); // Reset the form fields.
+    window.location.href = 'index.html'; // Redirect the user to the homepage.
+
+
+   
+  });
+</script>
+
+</body>
+</html>
